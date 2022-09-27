@@ -12,6 +12,9 @@ p {
 label {
   font-size: 20px;
 }
+hr {
+  margin-top: 20px;
+}
 
 .search-input {
   width: 30%;
@@ -57,7 +60,7 @@ label {
   margin: 70px auto 0;
 }
 .app-display {
-  padding: 20px;
+  padding: 30px;
   background-color: #fafafa63;
   border-radius: 35px;
   box-shadow: 8px 13px 24px 12px rgba(0, 0, 0, 0.2);
@@ -67,9 +70,10 @@ label {
   font-weight: 400;
 }
 .current-date {
-  font-size: 40px;
+  display: block;
+  font-size: 38px;
   text-align: right;
-  font-weight: 400;
+  font-weight: 300;
 }
 .current-temp {
   font-size: 48px;
@@ -91,6 +95,8 @@ ul {
   text-align: right;
 }
 .degree-button {
+  position: relative;
+  top: -10px;
   font-size: 15px;
   border: none;
   background: none;
