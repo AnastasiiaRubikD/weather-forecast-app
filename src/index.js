@@ -14,11 +14,16 @@ function searchCity(event) {
   searchInput.value = "";
 }
 function showWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let currentDegree = document.querySelector("#weather-number");
   currentDegree.innerHTML = temperature;
   let realLocation = document.querySelector("#real-location");
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `humidity ${response.data.main.humidity}%`;
   realLocation.innerHTML = response.data.name;
+  let windSpeed = document.querySelector("#wind");
+  windSpeed.innerHTML = `wind ${Math.round(response.data.wind.speed)}km/h`;
 }
 //current location button
 
