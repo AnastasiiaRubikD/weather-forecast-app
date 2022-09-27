@@ -78,21 +78,11 @@ hr {
 .current-temp {
   font-size: 48px;
 }
-.humi-wind {
-  margin-top: 12px;
-  margin-left: 0;
-  padding: 0;
-  font-weight: 900;
-}
 ul {
+  display: inline;
   list-style: none;
   margin: 15px 0 0;
   position: relative;
-}
-.current-time {
-  display: block;
-  font-size: 40px;
-  text-align: right;
 }
 .degree-button {
   position: relative;
