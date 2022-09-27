@@ -61,7 +61,6 @@ let time = document.querySelector("#real-time");
 let now = new Date();
 
 let date = now.getDate();
-let year = now.getFullYear();
 let hours = now.getHours();
 let minutes = now.getMinutes();
 
@@ -84,8 +83,7 @@ let months = [
 ];
 let month = months[now.getMonth()];
 
-fullDate.innerHTML = `${day}, ${date} ${month} ${year}`;
-time.innerHTML = `${hours}:${minutes}`;
+fullDate.innerHTML = `${day}, ${date} ${month} ${hours}:${minutes}`;
 
 //city search engine
 let currentCity = document.querySelector("#search-form");

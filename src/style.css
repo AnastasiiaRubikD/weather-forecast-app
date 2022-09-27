@@ -53,11 +53,10 @@ label {
 }
 .app-display-wrapper {
   display: block;
-  max-width: 860px;
+  max-width: 800px;
   margin: 70px auto 0;
 }
 .app-display {
-  padding: 15px;
   padding: 20px;
   background-color: #fafafa63;
   border-radius: 35px;
@@ -68,7 +67,6 @@ label {
   font-weight: 400;
 }
 .current-date {
-  display: block;
   font-size: 40px;
   text-align: right;
   font-weight: 400;
@@ -82,6 +80,11 @@ label {
   padding: 0;
   font-weight: 900;
 }
+ul {
+  list-style: none;
+  margin: 15px 0 0;
+  position: relative;
+}
 .current-time {
   display: block;
   font-size: 40px;
@@ -89,9 +92,6 @@ label {
 }
 .degree-button {
   font-size: 15px;
-  line-height: 48px;
-  position: relative;
-  vertical-align: top;
   border: none;
   background: none;
   padding: 0;
@@ -100,13 +100,6 @@ label {
 .degree-button:hover {
   text-shadow: 5px 5px 10px #fff;
   color: #7e8285;
-}
-
-.time {
-  width: 91%;
-  display: block;
-  margin: 0 auto;
-  font-size: 18px;
 }
 .week {
   font-size: 22px;
@@ -136,24 +129,4 @@ label {
 }
 .icon-rain {
   color: #005792;
-}
-
-input[type="range"] {
-  display: block;
-  width: 90%;
-  margin: 50px auto 10px;
-  cursor: pointer;
-  height: 5px;
-  border-radius: 9px;
-  -webkit-appearance: none;
-  overflow: visible;
-  background-color: #dee1e2c9;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  width: 25px;
-  -webkit-appearance: none;
-  height: 15px;
-  border-radius: 9px;
-  background: #83baf9;
 }

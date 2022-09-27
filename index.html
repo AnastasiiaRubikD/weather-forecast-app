@@ -53,38 +53,23 @@
               <span class="current-location" id="real-location">Kyiv</span>
             </div>
             <div class="col-6">
-              <span class="current-date" id="real-date">Tue, 12 July 2022</span>
+              <span class="current-date" id="real-date"></span>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <span class="current-temp">
-                <i class="fa-regular fa-sun icon-sun"></i
-                ><span id="weather-number">23</span
-                ><span id="current-degree-sign">°C</span></span
-              >
-              <button
-                type="click"
-                class="degree-button"
-                id="change-degree-sign"
-              >
-                |°F
-              </button>
-            </div>
-            <div class="col humi-wind">
-              <small class="humidity"> humidity 60% </small>
-              <br />
-              <small class="wind"> wind 19km/h</small>
-            </div>
-            <div class="col-6">
-              <span class="current-time" id="real-time">18:08</span>
-            </div>
+          <div class="d-flex">
+            <span class="current-temp">
+              <i class="fa-regular fa-sun icon-sun"></i
+              ><span id="weather-number">23</span
+              ><span id="current-degree-sign">°C</span></span
+            >
+            <button type="click" class="degree-button" id="change-degree-sign">
+              |°F
+            </button>
+            <ul>
+              <li><small> humidity 60% </small></li>
+              <li><small> wind 19km/h</small></li>
+            </ul>
           </div>
-          <input type="range" class="time-range" min="0" max="6" step="1" />
-          <span class="time">
-            0AM ㅤㅤㅤㅤ4AM ㅤㅤㅤㅤㅤ8AMㅤㅤㅤㅤㅤ12AMㅤㅤㅤㅤㅤ4PM
-            ㅤㅤㅤㅤ8PMㅤㅤㅤㅤ12PM
-          </span>
           <hr />
           <div class="row">
             <div class="col-1"></div>
