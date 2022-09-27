@@ -1,3 +1,37 @@
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+
+  let date = now.getDate();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[now.getDay()];
+
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[now.getMonth()];
+
+  return `${day}, ${date} ${month} ${hours}:${minutes}`;
+}
 function searchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
@@ -24,6 +58,8 @@ function showWeather(response) {
   realLocation.innerHTML = response.data.name;
   let windSpeed = document.querySelector("#wind");
   windSpeed.innerHTML = `wind ${Math.round(response.data.wind.speed)}km/h`;
+  let fullDate = document.querySelector("#real-date");
+  fullDate.innerHTML = formatDate(response.data.dt * 1000);
 }
 //current location button
 
@@ -62,36 +98,6 @@ axios.get(apiUrl).then(showWeather);
 let currentLocationButton = document.querySelector("#device-location");
 currentLocationButton.addEventListener("click", getCurrentPosition);
 //date and time
-let fullDate = document.querySelector("#real-date");
-let time = document.querySelector("#real-time");
-
-let now = new Date();
-
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-
-let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-let day = days[now.getDay()];
-
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
-
-fullDate.innerHTML = `${day}, ${date} ${month} ${hours}:${minutes}`;
-
 //city search engine
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", searchCity);
