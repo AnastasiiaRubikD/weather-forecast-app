@@ -56,6 +56,8 @@ function changeSign() {
   }
 }
 let apiKey = "7b3a77a5c1a8ebaa302785b7cb6888c7";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&units=metric&appid=7b3a77a5c1a8ebaa302785b7cb6888c7`;
+axios.get(apiUrl).then(showWeather);
 
 let currentLocationButton = document.querySelector("#device-location");
 currentLocationButton.addEventListener("click", getCurrentPosition);
