@@ -60,6 +60,12 @@ function showWeather(response) {
   windSpeed.innerHTML = `wind ${Math.round(response.data.wind.speed)}km/h`;
   let fullDate = document.querySelector("#real-date");
   fullDate.innerHTML = formatDate(response.data.dt * 1000);
+  let currentIcon = document.querySelector("#icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  currentIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 //current location button
 
