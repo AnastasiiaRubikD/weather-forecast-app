@@ -10,10 +10,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
   let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   let day = days[now.getDay()];
-
   let months = [
     "Jan",
     "Feb",
@@ -32,6 +30,7 @@ function formatDate(timestamp) {
 
   return `${day}, ${date} ${month} ${hours}:${minutes}`;
 }
+
 function searchCity(city) {
   let apiKey = "7b3a77a5c1a8ebaa302785b7cb6888c7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=7b3a77a5c1a8ebaa302785b7cb6888c7`;
@@ -50,6 +49,7 @@ function searchButton(event) {
   }
   searchInput.value = "";
 }
+
 function showWeather(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
@@ -69,15 +69,18 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   currentIcon.setAttribute("alt", `${response.data.weather[0].description}`);
+
+  let degreeSign = document.querySelector("#current-degree-sign");
+  let degreeButton = document.querySelector("#change-degree-sign");
+  degreeSign.innerHTML = "°C";
+  degreeButton.innerHTML = "|°F";
 }
 //current location button
-
 function currentWeather(position) {
   console.log(position.coords.latitude);
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=7b3a77a5c1a8ebaa302785b7cb6888c7`;
   axios.get(apiUrl).then(showWeather);
 }
-
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(currentWeather);
 }
