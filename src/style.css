@@ -104,25 +104,14 @@ ul {
 }
 .day-forecast {
   background-color: #e3f6f5;
-  width: 125px;
+  width: 115px;
   border-radius: 18px;
   padding: 5px;
 }
-.weather-icon {
+.forecast-temp-min-max {
   display: block;
   text-align: center;
-  font-size: 65px;
-  padding: 20px 0 15px;
-}
-.icon-sun {
-  color: #f7e571;
-}
-.icon-cloudy {
-  color: #b4bbd6;
-}
-.icon-storm {
-  color: #a2a8d3;
-}
-.icon-rain {
-  color: #005792;
+  font-size: 27px;
+  margin-bottom: 14px;
+  padding: 5px;
 }

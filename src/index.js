@@ -75,6 +75,31 @@ function showWeather(response) {
   degreeSign.innerHTML = "°C";
   degreeButton.innerHTML = "|°F";
 }
+function displayForecast() {
+  let forecast = document.querySelector("#dayly-forecast");
+  let forecastHTML = `<div class = "row">
+  <div class="col-1"></div>`;
+  let weekdays = ["Thur", "Fri", "Sat", "Sun", "Mon"];
+  weekdays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                <span class="week">${day}</span>
+                <div class="day-forecast">
+                  <img
+                    src="http://openweathermap.org/img/wn/04n@2x.png"
+                    alt=""
+                  />
+                  <span class="forecast-temp-min-max"> 15° 26°</span>
+                </div>
+              </div>`;
+  });
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-1"></div>
+              </div>`;
+  forecast.innerHTML = forecastHTML;
+}
 //current location button
 function currentWeather(position) {
   console.log(position.coords.latitude);
@@ -105,6 +130,7 @@ function changeSign() {
 }
 
 searchCity("New York");
+displayForecast();
 let currentLocationButton = document.querySelector("#device-location");
 currentLocationButton.addEventListener("click", getCurrentPosition);
 
