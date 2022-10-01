@@ -49,8 +49,8 @@ function searchButton(event) {
   }
   searchInput.value = "";
 }
-function searchForecast(coordinats) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinats.lat}&lon=${coordinats.lon}&appid=7b3a77a5c1a8ebaa302785b7cb6888c7`;
+function searchForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=b400ae3b711a616262d18b0ca2cbe78f&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 function showWeather(response) {
@@ -80,25 +80,39 @@ function showWeather(response) {
 
   searchForecast(response.data.coord);
 }
+
+function formatForecastDate(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[now.getDay()];
+  return `${day}`;
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let dailyForecast = response.data.daily;
+
   let forecast = document.querySelector("#dayly-forecast");
   let forecastHTML = `<div class = "row">
   <div class="col-1"></div>`;
-  let weekdays = ["Thur", "Fri", "Sat", "Sun", "Mon"];
-  weekdays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-                <span class="week">${day}</span>
+  dailyForecast.forEach(function (forecastDay, index) {
+    if ((index > 0) & (index < 6)) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+                <span class="week">${formatForecastDate(forecastDay.dt)}</span>
                 <div class="day-forecast">
                   <img
-                    src="http://openweathermap.org/img/wn/04n@2x.png"
-                    alt=""
+                    src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png"
+                    alt="${forecastDay.weather[0].description}"
                   />
-                  <span class="forecast-temp-min-max"> 15° 26°</span>
+                  <span class="forecast-temp-min-max"> ${Math.round(
+                    forecastDay.temp.min
+                  )}° ${Math.round(forecastDay.temp.max)}°</span>
                 </div>
               </div>`;
+    }
   });
   forecastHTML =
     forecastHTML +
@@ -106,6 +120,7 @@ function displayForecast(response) {
               </div>`;
   forecast.innerHTML = forecastHTML;
 }
+
 //current location button
 function currentWeather(position) {
   console.log(position.coords.latitude);
