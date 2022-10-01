@@ -73,11 +73,6 @@ function showWeather(response) {
   );
   currentIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 
-  let degreeSign = document.querySelector("#current-degree-sign");
-  let degreeButton = document.querySelector("#change-degree-sign");
-  degreeSign.innerHTML = "°C";
-  degreeButton.innerHTML = "|°F";
-
   searchForecast(response.data.coord);
 }
 
@@ -131,25 +126,6 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(currentWeather);
 }
 
-function changeSign() {
-  let previousSign = document.querySelector("#current-degree-sign");
-  let newSign = document.querySelector("#change-degree-sign");
-  let weatherNumber = document.querySelector("#weather-number");
-  if (previousSign.innerHTML === "°C") {
-    previousSign.innerHTML = "°F";
-    weatherNumber.innerHTML = Math.round(
-      (weatherNumber.innerHTML * 9) / 5 + 32
-    );
-    newSign.innerHTML = "|°C";
-  } else {
-    previousSign.innerHTML = "°C";
-    weatherNumber.innerHTML = Math.round(
-      ((weatherNumber.innerHTML - 32) * 5) / 9
-    );
-    newSign.innerHTML = "|°F";
-  }
-}
-
 searchCity("New York");
 
 let currentLocationButton = document.querySelector("#device-location");
@@ -158,7 +134,3 @@ currentLocationButton.addEventListener("click", getCurrentPosition);
 //city search engine
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", searchButton);
-
-//change degree signs
-let changeSignButton = document.querySelector("#change-degree-sign");
-changeSignButton.addEventListener("click", changeSign);

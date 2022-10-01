@@ -84,19 +84,6 @@ ul {
   margin: 15px 0 0;
   position: relative;
 }
-.degree-button {
-  position: relative;
-  top: -10px;
-  font-size: 15px;
-  border: none;
-  background: none;
-  padding: 0;
-  transition: all 150ms ease-in-out;
-}
-.degree-button:hover {
-  text-shadow: 5px 5px 10px #fff;
-  color: #7e8285;
-}
 .week {
   font-size: 22px;
   display: block;
