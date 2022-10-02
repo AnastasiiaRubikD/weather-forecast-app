@@ -15,6 +15,9 @@ label {
 hr {
   margin-top: 20px;
 }
+img {
+  width: 100px;
+}
 
 .search-input {
   width: 30%;
@@ -78,6 +81,9 @@ hr {
 .current-temp {
   font-size: 48px;
 }
+.current-temp img {
+  margin-top: -7px;
+}
 ul {
   display: inline;
   list-style: none;
@@ -90,7 +96,7 @@ ul {
   text-align: center;
 }
 .day-forecast {
-  background-color: #e3f6f5;
+  background-color: #e3f6f5bf;
   width: 115px;
   border-radius: 18px;
   padding: 5px;
